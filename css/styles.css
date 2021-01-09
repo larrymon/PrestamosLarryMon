@@ -1,0 +1,124 @@
+#container {
+  padding-left: 300px;
+}
+
+#content {
+  padding: 20px;
+}
+
+@media only screen and (max-width : 992px) {
+  #container {
+    padding-left: 0px;
+  }
+}
+
+.loginp{
+    	width: 100%;
+	}
+@media screen and (max-width : 499px)    {
+		.loginp {
+				width: 100%;
+	    }
+	}
+ 
+@media screen and (min-width : 500px)    {
+		.loginp {
+				width: 30%;
+	    }
+	}
+
+
+
+#global,#tbRenovables {
+	height: 400px;
+	width: 100%;
+	border: 1px solid #ddd;
+	background: #f1f1f1;
+	overflow-y: scroll;
+}
+#divAddMenuEsp {
+	height: 420px;
+	width: 100%; 
+	overflow-y: scroll;
+	margin:0;
+	padding: 0;
+}
+
+
+ #tbClientes {
+	height: 280px; 
+	border: 1px solid #ddd;
+	background: #f1f1f1;
+	overflow-y: scroll;
+}
+
+.scroller {
+	padding-top: 0;
+	margin-top: 0;
+	height: 850px;
+	width: 100%; 
+	border: 1px  solid grey;
+	overflow-y: scroll;
+}
+
+#framepagos{
+	margin: 1px;
+	height: 100%;
+	width: 100%;
+}
+#framepagos{
+	margin: 1px;
+	height: 100%;
+	width: 100%;
+}
+
+#divAddMenu{
+	margin: 1px;
+	height: 100%;
+	width: 100%;
+}
+
+.global2 { 
+	overflow-y: scroll;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+
+.scroller-monitor {
+	padding-top: 0;
+	margin-top: 0;
+	height: 300px;
+	width: 100%; 
+	border: 1px  solid grey;
+	overflow-y: scroll;
+}
+
+.aladerecha{
+	text-align: right;
+}
+
+.label-fecha{
+	top: -25px !important;
+    display: block;
+}
+
+fieldset{
+	border-color: #2196f3;
+}
+legend {
+	color: #2196f3;
+	font-weight: bold;
+}
+legend i {
+	color: #2196f3 !important;
+	cursor: pointer;
+}
+input.removeCross::-webkit-outer-spin-button, /* Removes arrows */
+input.removeCross::-webkit-inner-spin-button, /* Removes arrows */
+input.removeCross::-webkit-clear-button { /* Removes blue cross */
+  -webkit-appearance: none;
+  margin: 0;
+}

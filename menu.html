@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presico</title>
+
+    <!--Instalando la Fuente-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="css/styles.css"  />
+    <!--Import a image-->
+    <link rel="shortcut icon" href="/img/presico.png" />
+    <!--<script type="text/javascript" src="js/hora.js"></script>-->
+</head>
+<body>
+
+            
+            <!--Registrar Cliente-->
+            <form action="php/AgregarPrestamoPost.php" method="POST">
+                <h5>Nombre: </h5><input type="text" name="Nombre"><br>
+                <h5>Plazo: </h5><input type="number" name="Plazo"><br>
+                <h5>Monto: </h5><input type="number" name="Monto"><br>
+                <input type="submit" value="Guardar">
+            </form>
+            <br><br><br><br><br>
+
+            <!--Buscar Cliente-->
+            <form action="php/AgregarPrestamoGet.php" method="GET">
+                <h5> Buscar Cliente:</h5> <input type="text" name="NombreBuscar"><br>
+                <input type="submit" value="Buscar">
+            </form>
+            <br><br><br><br><br>
+
+            <!--Mandando a llamar la pagina principal-->
+            <a href="index.html">
+                <button id="btnLogin" class="btn btn-large waves-effect waves-light" type="button" name="action">Pagina Principal</button>
+            </a>
+
+
+            <!-- MANDANDO A LLAMAR EL JS-->
+            <!--<script type="text/javascript" src="js/hora.js"></script>-->
+            <!--<script type="text/javascript" src="js/menu.js"></script>-->
+            <!-- <script src="js/hora.js"></script> -->
+
+</body>
+</html>
