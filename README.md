@@ -13,3 +13,6 @@ https://es.stackoverflow.com/questions/100239/por-qu%C3%A9-me-sale-el-error-call
 
 -- Ejemplos de Consulta con PHP
 https://www.php.net/manual/es/mysqli.examples-basic.php
+
+-- Metodo PHP Para Obtener la fecha
+https://www.php.net/manual/es/function.date.php
