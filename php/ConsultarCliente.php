@@ -21,7 +21,7 @@
 
         ## Traemos el nombre a buscar del Formulario
         $NombreBuscar = $_POST["NombreBuscar"];
-        ## Mandamos a llamar la funcion
+        ## Mandamos a llamar la Funcion
         buscarcliente($NombreBuscar);
 
         ## Bloque de codigo para buscar Cliente
@@ -33,7 +33,7 @@
 
             ## Metodo que realiza la consulta a BD y la guarda. 
             if (!$resultado = $conexion->query($sql)) {
-                // ¡Oh, no! La consulta falló. 
+                ## ¡Oh, no! La consulta falló, no pudo realizar la conexion a BD. 
                 echo "Lo sentimos, este sitio web está experimentando problemas.";
                 ##exit;
                 
@@ -49,11 +49,11 @@
                 echo "<h2> El nombre de cliente es: </h2><h1>" . $clientes['Nombre'] . "</h1><h2>Solicito un prestamo de</h2><h1>" . $clientes['Monto_Prestamo'] . "</h1><h2>a</h2><h1> " . $clientes['Plazos'] . "</h1><h2>Semanas. </h2>";
             }
 
+            ## Cerramos la conexion
             $resultado->free();
             $conexion->close();
 
         }
-
         ?>
 
         <!--Mandando a llamar el menu-->
