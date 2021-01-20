@@ -1,3 +1,16 @@
+<?php 
+    include("Conexion.php");
+    $buscar = (isset($_GET['buscar'])) ? $_GET['buscar'] : '';
+    ## Abriendo Conexion para realizar la consulta
+    $conexion = conectar();
+    $sql = "SELECT ID,Nombre,Monto_Prestamo,Plazos,Fecha FROM clientes WHERE Nombre LIKE '%$buscar%'";
+    $resultado = $conexion->query($sql);
+    //$rows = ;
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,46 +28,41 @@
 
 </head>
 <body>
-        <?php
-        ## Realizar Conexion
-        include("Conexion.php");
+        <!--PARA BUSCAR OTRO CLIENTE-->
+        <form action="ConsultarCliente.php">
+            <input type="text" name="buscar" value="<?php echo $buscar ?>">
+            <button type="submit">Buscar</button>
+        </form></br>
+        <!--TABLA QUE RETORNA LOS CLIENTES-->
+        <table width="30%" height="20%" border="3" style="text-align:center;">
+            <thead> 
+                <th>Nombre</th>
+                <th>Monto Prestamo</th>
+                <th>Plazos</th>
+                <th>Fecha</th>
+                <th>Opciones</th>
+            </thead>
+            <tbody>
 
-        ## Traemos el nombre a buscar del Formulario
-        $NombreBuscar = $_POST["NombreBuscar"];
-        ## Mandamos a llamar la Funcion
-        buscarcliente($NombreBuscar);
+                <?php
+                    while($row = $resultado->fetch_array(MYSQLI_ASSOC)){
 
-        ## Bloque de codigo para buscar Cliente
-        function buscarcliente($NombreBuscar){
+                ?>
+                <tr>
+                    <td><?php echo $row['Nombre'] ?></td>
+                    <td><?php echo $row['Monto_Prestamo'] ?></td>
+                    <td><?php echo $row['Plazos']?></td>
+                    <td><?php echo $row['Fecha']?></td>
+                    <td>
+                        <button>Editar</button>
+                        <button>Eliminar</button>
+                    </td>
+                </tr>
 
-            ## Abriendo Conexion para realizar la consulta
-            $conexion = conectar();
-            $sql = "SELECT ID,Nombre,Monto_Prestamo,Plazos,Fecha FROM clientes WHERE Nombre like '$NombreBuscar'";
+                <?php }?>
 
-            ## Metodo que realiza la consulta a BD y la guarda. 
-            if (!$resultado = $conexion->query($sql)) {
-                ## ¡Oh, no! La consulta falló, no pudo realizar la conexion a BD. 
-                echo "Lo sentimos, este sitio web está experimentando problemas.";
-                ##exit;
-                
-            }
-            ## Si no encuentra Registros
-            elseif ($resultado->num_rows === 0) {
-                echo "<h1> Lo sentimos. No se pudo encontrar una coincidencia con el nombre $NombreBuscar. Favor de validar la información. </h1>";
-                ##exit;
-                
-            }
-            else{
-                $clientes = $resultado->fetch_assoc();
-                echo "<h2> El nombre de cliente es: </h2><h1>" . $clientes['Nombre'] . "</h1><h2>Solicito un prestamo de</h2><h1>" . $clientes['Monto_Prestamo'] . "</h1><h2>a</h2><h1> " . $clientes['Plazos'] . "</h1><h2>Semanas. </h2>";
-            }
-
-            ## Cerramos la conexion
-            $resultado->free();
-            $conexion->close();
-
-        }
-        ?>
+            </tbody>
+        </table></br>
 
         <!--Mandando a llamar el menu-->
         <a href="../menu.html">
