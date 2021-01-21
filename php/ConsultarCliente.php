@@ -3,9 +3,10 @@
     $buscar = (isset($_GET['buscar'])) ? $_GET['buscar'] : '';
     ## Abriendo Conexion para realizar la consulta
     $conexion = conectar();
+
+    ## Consulta información
     $sql = "SELECT ID,Nombre,Monto_Prestamo,Plazos,Fecha FROM clientes WHERE Nombre LIKE '%$buscar%'";
     $resultado = $conexion->query($sql);
-    //$rows = ;
 
 
 ?>
@@ -25,17 +26,18 @@
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="css/styles.css"  />
-
 </head>
 <body>
-        <!--PARA BUSCAR OTRO CLIENTE-->
+        <!--PARA BUSCAR OTRO CLIENTE - MANDA A LLAMAR LA CLASE OTRA VEZ-->
         <form action="ConsultarCliente.php">
-            <input type="text" name="buscar" value="<?php echo $buscar ?>">
+            <input type="text" name="buscar" value="<?php echo $buscar ?>"><!--Muestra lo ultimo que se busco.-->
             <button type="submit">Buscar</button>
         </form></br>
+
         <!--TABLA QUE RETORNA LOS CLIENTES-->
-        <table width="30%" height="20%" border="3" style="text-align:center;">
+        <table width="45%" height="25%" border="3" style="text-align:center;">
             <thead> 
+                <th>ID</th>
                 <th>Nombre</th>
                 <th>Monto Prestamo</th>
                 <th>Plazos</th>
@@ -46,19 +48,20 @@
 
                 <?php
                     while($row = $resultado->fetch_array(MYSQLI_ASSOC)){
-
+                        //echo print_r($row);
                 ?>
                 <tr>
+                    <td><?php echo $row['ID'] ?></td>
                     <td><?php echo $row['Nombre'] ?></td>
                     <td><?php echo $row['Monto_Prestamo'] ?></td>
                     <td><?php echo $row['Plazos']?></td>
                     <td><?php echo $row['Fecha']?></td>
                     <td>
-                        <button>Editar</button>
-                        <button>Eliminar</button>
+                        <!-- Redireccionar a Modificar y Eliminar -->
+                            <a href="./ModificarEliminarClientes.php?id=<?php echo $row['ID']?>"><button type="button">Editar</button></a>
+                            <button type="submit">Eliminar</button>
                     </td>
                 </tr>
-
                 <?php }?>
 
             </tbody>
