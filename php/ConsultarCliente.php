@@ -24,8 +24,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="css/styles.css"  />
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../css/styles.css"  />
 </head>
 <body>
         <!--PARA BUSCAR OTRO CLIENTE - MANDA A LLAMAR LA CLASE OTRA VEZ-->
@@ -58,8 +58,8 @@
                     <td><?php echo $row['Fecha']?></td>
                     <td>
                         <!-- Redireccionar a Modificar y Eliminar -->
-                            <a href="./ModificarEliminarClientes.php?id=<?php echo $row['ID']?>"><button type="button">Editar</button></a>
-                            <button type="submit">Eliminar</button>
+                        <a href="./ModificarEliminarClientes.php?id=<?php echo $row['ID']?>"><button type="button">Editar</button></a>
+                        <button type="submit">Eliminar</button>
                     </td>
                 </tr>
                 <?php }?>
@@ -69,7 +69,7 @@
 
         <!--Mandando a llamar el menu-->
         <a href="../menu.html">
-            <button id="btnLogin" class="btn btn-large waves-effect waves-light" type="button" name="action">Pagina Principal</button>
+            <button id="btnLogin" class="btn btn-large waves-effect waves-light" type="button" name="action"> Regresar</button>
         </a>
 
     

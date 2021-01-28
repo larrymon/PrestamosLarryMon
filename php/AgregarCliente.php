@@ -10,8 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-    <link type="text/css" rel="stylesheet" href="css/styles.css"  />
+    <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="../css/styles.css"  />
 
 </head>
 <body>
@@ -32,32 +32,41 @@
         ## Bloque de codigo para guardar el prestamo
         function RegistrarPrestamoCliente($NombreCliente,$PlazoPagar,$MontoPagar){
 
-            ## Abriendo Conexion para realizar la consulta
-            $conexion = conectar();
-            ## Variables
-            $Fecha = "";
-            ##Mandamos a llamar la funcion para Obtener la Fecha
-            $FechaActual = ObtenerFechaActual($Fecha);
-            ##echo "La fecha actual es: $FechaActual";
-
-            $sql = "insert into clientes (Nombre, Monto_Prestamo, Plazos, Fecha) VALUES ('$NombreCliente',$MontoPagar,$PlazoPagar,'$FechaActual')";
-
-            ## Metodo que realiza la consulta a BD y la guarda.
-            if ($resultado = $conexion->query($sql)) {
-                ## ¡Oh, no! La consulta falló, no pudo realizar la conexion a BD. 
-                echo "Se guardo el Prestamo del cliente $NombreCliente a $PlazoPagar semanas por la cantidad de $MontoPagar.";
-                ##exit;
+            ## validar que nungun dato venga vacio
+            if($NombreCliente != "" and $PlazoPagar != "" and $MontoPagar != "")
+            {
+                ## Abriendo Conexion para realizar la consulta
+                $conexion = conectar();
+                ## Variables
+                $Fecha = "";
+                ##Mandamos a llamar la funcion para Obtener la Fecha
+                $FechaActual = ObtenerFechaActual($Fecha);
+                ##echo "La fecha actual es: $FechaActual";
                 
-            }
-            ## Si no encuentra Registros
-            elseif ($resultado->num_rows === 0) {
-                echo "Error: " . $sql . "<br>" . query($sql);
-                ##exit;
+                $sql = "insert into clientes (Nombre, Monto_Prestamo, Plazos, Fecha) VALUES ('$NombreCliente',$MontoPagar,$PlazoPagar,'$FechaActual')";
                 
+                ## Metodo que realiza la consulta a BD y la guarda.
+                if ($resultado = $conexion->query($sql)) {
+                    ## ¡Oh, no! La consulta falló, no pudo realizar la conexion a BD. 
+                    echo "Se guardo el Prestamo del cliente $NombreCliente a $PlazoPagar semanas por la cantidad de $MontoPagar.";
+                    ##exit;
+                    
+                }
+                ## Si no encuentra Registros
+                elseif ($resultado->num_rows === 0) {
+                    echo "Error: " . $sql . "<br>" . query($sql);
+                    ##exit;
+                    
+                }
+                ## Cerramos la conexion
+                ##$resultado->free();
+                $conexion->close();
             }
-            ## Cerramos la conexion
-            ##$resultado->free();
-            $conexion->close();
+            else{
+
+                echo "<h1> Favor de proporcionar un valor valido. </h1><br>";
+
+            }
 
         }
 
@@ -74,7 +83,7 @@
 
         <!--Mandando a llamar el menu-->
         <a href="../menu.html">
-            <button id="btnLogin" class="btn btn-large waves-effect waves-light" type="button" name="action">Pagina Principal</button>
+            <button id="btnLogin" class="btn btn-large waves-effect waves-light" type="button" name="action">Regresar</button>
         </a>
 
     
