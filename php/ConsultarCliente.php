@@ -69,7 +69,7 @@
 
         <!--Mandando a llamar el menu-->
         <a href="../menu.html">
-            <button id="btnLogin" class="btn btn-large waves-effect waves-light" type="button" name="action"> Regresar</button>
+            <button id="btnLogin" class="btn btn-large waves-effect waves-light" type="button" name="action"> Regresar al Menu Principal</button>
         </a>
 
     

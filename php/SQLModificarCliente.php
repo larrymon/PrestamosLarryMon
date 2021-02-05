@@ -27,27 +27,30 @@
                 $MontoPrestamo = $_POST["Monto_Prestamo"];
                 $Plazos = $_POST["Plazos"];
 
-                echo $Id;
-                echo $Nombre;
-                echo $MontoPrestamo;
-                echo $Plazos;
+                // echo $Id;
+                // echo $Nombre;
+                // echo $MontoPrestamo;
+                // echo $Plazos;
 
                 ##Mandamos a llamar la función para modificar
-                ##ModificarClientes($Nombre,$Plazos,$MontoPrestamo);
+                ModificarClientes($Id,$Nombre,$Plazos,$MontoPrestamo);
 
                 ## Bloque de codigo para modificar los clientes
-                function ModificarClientes($ID,$Nombre,$Plazos,$MontoPrestamo){
+                function ModificarClientes($Id,$Nombre,$Plazos,$MontoPrestamo){
 
                     ## Abriendo Conexion para realizar la consulta
-                    ##$conexion = conectar();
+                    $conexion = conectar();
                     ## Variables
                     $Fecha = "";
                     ##Mandamos a llamar la funcion para Obtener la Fecha
                     $FechaActual = ObtenerFechaActual($Fecha);
                     ##echo "La fecha actual es: $FechaActual";
 
-                    $sql = "update clientes set Nombre=$Nombre,Plazos=$Plazos,Monto_Prestamo=$MontoPrestamo where ID =$ID";
+                    $sql = "update clientes set Nombre='$Nombre',Plazos=$Plazos,Monto_Prestamo=$MontoPrestamo where ID =$Id";
+                    $resultado = $conexion->query($sql);
 
+                    echo "<h1> Se realizo la modificación del cliente $Nombre que cuenta con un prestamo por la cantidad de $MontoPrestamo con un plazo de $Plazos semanas.";
+ 
                 }
 
                 function ObtenerFechaActual($Fecha){
