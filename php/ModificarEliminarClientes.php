@@ -38,25 +38,24 @@
         <h1>Editar Clientes</h1>
         <br><br>
         <form action="SQLModificarCliente.php" method="POST">
-            <input type="text" name="ID" value="<?php echo  $row['ID'] ?>">
             <h5>Nombre: </h5> <input type="text" name="Nombre" value="<?php echo $row['Nombre'] ?>"><br>
             <h5>Monto Prestamo: </h5> <input type="number" name="Monto_Prestamo" value="<?php echo $row['Monto_Prestamo'] ?>"><br>
             <h5>Plazos: </h5> <input type="number" name="Plazos" value="<?php echo $row['Plazos'] ?>"><br>
-            <button type="submit">Actualizar</button>
+            <button type="submit" name="ID" value="<?php echo $row['ID'] ?>">Actualizar</button>
         </form>
     </div><br><br>
 
 
     <!--Mandando a llamar el menu-->
     <a href="ConsultarCliente.php">
-        <button id="btnLogin" class="btn btn-large waves-effect waves-light" type="button" name="action">Pagina Principal</button>
+        <button id="btnLogin" class="btn btn-large waves-effect waves-light" type="button" name="action">Regresar a Busqueda</button>
     </a>
 
     
     <?php
-               echo "<br><br><br>";
-               echo "Final!!! <br><br><br>";
-               print_r($row);
+                //    echo "<br><br><br>";
+                //    echo "Final!!! <br><br><br>";
+                //    print_r($row);
                 // if(isset($_POST['submit'])){
                 //     $row = array("id"=>['ID'],
                 //                     "Nombre"=>['Nombre'],
