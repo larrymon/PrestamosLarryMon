@@ -6,7 +6,11 @@
             ## Traemos los datos a guardar en la BD "variable = $_POST[variable];"
             //$id = $_POST['id'];
             //$id = (isset($_GET['id'])) ? $_GET['id'] : '';
-            $id = (isset($_GET['id']));
+            $id = (isset($_GET['id'])) ? $_GET['id'] : null;
+
+            if(!$id){
+                header("Location: ConsultarCliente.php");
+            }
             $sql = "SELECT * FROM Clientes where ID = '$id'";
             $resultado = $conexion->query($sql);
             $row = $resultado->fetch_array(MYSQLI_ASSOC);
@@ -34,12 +38,14 @@
         <h1>Editar Clientes</h1>
         <br><br>
         <form action="SQLModificarCliente.php" method="POST">
-            <h5>Nombre:         <?php echo $row['Nombre'] ?>         </h5> <input type="text" name="Nombre"><br>
-            <h5>Monto Prestamo: <?php echo $row['Monto_Prestamo'] ?> </h5> <input type="number" name="Monto_Prestamo"><br>
-            <h5>Plazos:         <?php echo $row['Plazos'] ?>         </h5> <input type="number" name="Plazos"><br>
-            <input type="submit" value="Actualizar">
+            <input type="text" name="ID" value="<?php echo  $row['ID'] ?>">
+            <h5>Nombre: </h5> <input type="text" name="Nombre" value="<?php echo $row['Nombre'] ?>"><br>
+            <h5>Monto Prestamo: </h5> <input type="number" name="Monto_Prestamo" value="<?php echo $row['Monto_Prestamo'] ?>"><br>
+            <h5>Plazos: </h5> <input type="number" name="Plazos" value="<?php echo $row['Plazos'] ?>"><br>
+            <button type="submit">Actualizar</button>
         </form>
     </div><br><br>
+
 
     <!--Mandando a llamar el menu-->
     <a href="ConsultarCliente.php">

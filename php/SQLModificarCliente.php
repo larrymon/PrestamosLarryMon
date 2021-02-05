@@ -18,16 +18,47 @@
         
             <?php
                 include("Conexion.php");
-                //include("ConsultarCliente.php");
+                //include("ModificarEliminarClientes.php");
                 $conexion = conectar();
 
+                ## Traemos los datos a guardar en la BD "variable = $_POST[variable];"
+                $Id = $_POST["ID"];
                 $Nombre = $_POST["Nombre"];
                 $MontoPrestamo = $_POST["Monto_Prestamo"];
                 $Plazos = $_POST["Plazos"];
 
+                echo $Id;
                 echo $Nombre;
                 echo $MontoPrestamo;
                 echo $Plazos;
+
+                ##Mandamos a llamar la función para modificar
+                ##ModificarClientes($Nombre,$Plazos,$MontoPrestamo);
+
+                ## Bloque de codigo para modificar los clientes
+                function ModificarClientes($ID,$Nombre,$Plazos,$MontoPrestamo){
+
+                    ## Abriendo Conexion para realizar la consulta
+                    ##$conexion = conectar();
+                    ## Variables
+                    $Fecha = "";
+                    ##Mandamos a llamar la funcion para Obtener la Fecha
+                    $FechaActual = ObtenerFechaActual($Fecha);
+                    ##echo "La fecha actual es: $FechaActual";
+
+                    $sql = "update clientes set Nombre=$Nombre,Plazos=$Plazos,Monto_Prestamo=$MontoPrestamo where ID =$ID";
+
+                }
+
+                function ObtenerFechaActual($Fecha){
+                    ## Metodo pora obtener la fecha 
+                    ## 2001-03-10 17:16:18 (el formato DATETIME de MySQL)
+                    $Fecha = date("Y-m-d H:i:s");
+        
+                    ##echo "La fecha actual es: $Fecha";
+        
+                    return $Fecha;
+                }
             ?>
         
         <!--Mandando a llamar el menu-->
