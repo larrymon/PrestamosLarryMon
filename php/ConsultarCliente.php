@@ -8,7 +8,6 @@
     $sql = "SELECT ID,Nombre,Monto_Prestamo,Plazos,Fecha FROM clientes WHERE Nombre LIKE '%$buscar%'";
     $resultado = $conexion->query($sql);
 
-
 ?>
 
 
@@ -29,7 +28,7 @@
 </head>
 <body>
         <!--PARA BUSCAR OTRO CLIENTE - MANDA A LLAMAR LA CLASE OTRA VEZ-->
-        <form action="ConsultarCliente.php">
+        <form action="ConsultarCliente.php">    
             <input type="text" name="buscar" value="<?php echo $buscar ?>"><!--Muestra lo ultimo que se busco.-->
             <button type="submit">Buscar</button>
         </form></br>
@@ -58,8 +57,9 @@
                     <td><?php echo $row['Fecha']?></td>
                     <td>
                         <!-- Redireccionar a Modificar y Eliminar -->
-                        <a href="./ModificarEliminarClientes.php?id=<?php echo $row['ID']?>"><button type="button">Editar</button></a>
-                        <button type="submit">Eliminar</button>
+                        <a href="./ModificarClientes.php?id=<?php echo $row['ID']?>"><button type="button">Editar</button></a>
+                        <a href="./EliminarClientes.php?id=<?php echo $row['ID']?>"><button type="button">Eliminar</button></a>
+                        <!-- <button type="submit">Eliminar</button> -->
                     </td>
                 </tr>
                 <?php }?>

@@ -17,9 +17,9 @@
 <body>
         
             <?php
-                include("Conexion.php");
+                include("../Conexion.php");
                 //include("ModificarEliminarClientes.php");
-                $conexion = conectar();
+                //$conexion = conectar();
 
                 ## Traemos los datos a guardar en la BD "variable = $_POST[variable];"
                 $Id = $_POST["ID"];
@@ -27,10 +27,6 @@
                 $MontoPrestamo = $_POST["Monto_Prestamo"];
                 $Plazos = $_POST["Plazos"];
 
-                // echo $Id;
-                // echo $Nombre;
-                // echo $MontoPrestamo;
-                // echo $Plazos;
 
                 ##Mandamos a llamar la función para modificar
                 ModificarClientes($Id,$Nombre,$Plazos,$MontoPrestamo);
@@ -65,7 +61,7 @@
             ?>
         
         <!--Mandando a llamar el menu-->
-        <a href="ModificarEliminarClientes.php">
+        <a href="../ModificarClientes.php">
             <button id="btnLogin" class="btn btn-large waves-effect waves-light" type="button" name="action">Pagina Principal</button>
         </a>
 

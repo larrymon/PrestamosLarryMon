@@ -37,7 +37,7 @@
     <div>
         <h1>Editar Clientes</h1>
         <br><br>
-        <form action="SQLModificarCliente.php" method="POST">
+        <form action="./SQL/SQLModificarCliente.php" method="POST">
             <h5>Nombre: </h5> <input type="text" name="Nombre" value="<?php echo $row['Nombre'] ?>"><br>
             <h5>Monto Prestamo: </h5> <input type="number" name="Monto_Prestamo" value="<?php echo $row['Monto_Prestamo'] ?>"><br>
             <h5>Plazos: </h5> <input type="number" name="Plazos" value="<?php echo $row['Plazos'] ?>"><br>

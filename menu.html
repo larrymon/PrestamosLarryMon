@@ -20,7 +20,7 @@
 
             
             <!--Registrar Cliente-->
-            <form action="php/AgregarCliente.php" method="POST">
+            <form action="php/SQL/SQLAgregarCliente.php" method="POST">
                 <h5>Nombre: </h5><input type="text" name="Nombre"><br>
                 <h5>Plazo: </h5><input type="number" name="Plazo"><br>
                 <h5>Monto: </h5><input type="number" name="Monto"><br>
@@ -30,8 +30,7 @@
 
             <!--Buscar Cliente-->
             <form action="php/ConsultarCliente.php" method="POST">
-                <h5> Buscar Cliente:</h5> 
-                <input type="text" name="buscar" value="Buscar"><br>
+                <h5> Buscar Clientes:</h5> 
                 <input type="submit" value="Buscar">
             </form>
             <br><br><br><br><br>
@@ -43,6 +42,7 @@
 
 
             <!-- MANDANDO A LLAMAR EL JS-->
+            <!--<input type="text" name="buscar" value="Buscar"><br>-->
             <!--<script type="text/javascript" src="js/hora.js"></script>-->
             <!--<script type="text/javascript" src="js/menu.js"></script>-->
             <!-- <script src="js/hora.js"></script> -->
