@@ -57,6 +57,7 @@
                     <td><?php echo $row['Fecha']?></td>
                     <td>
                         <!-- Redireccionar a Modificar y Eliminar -->
+                        <a href="./ConsultarCorrida.php?id=<?php echo $row['ID']?>"> <button type="button">Corrida</button></a>
                         <a href="./ModificarClientes.php?id=<?php echo $row['ID']?>"><button type="button">Editar</button></a>
                         <a href="./EliminarClientes.php?id=<?php echo $row['ID']?>"><button type="button">Eliminar</button></a>
                         <!-- <button type="submit">Eliminar</button> -->
